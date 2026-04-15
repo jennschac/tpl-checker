@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "TPL Checker",
+  "version": "1.0",
+  "description": "Check Toronto Public Library ebook availability on Goodreads challenge lists",
+  "permissions": [],
+  "host_permissions": [
+    "https://gateway.bibliocommons.com/*",
+    "https://www.goodreads.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.goodreads.com/blog/show/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
